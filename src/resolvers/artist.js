@@ -1,6 +1,6 @@
 const resolver = {
-  artist: (_, __, { dataSources: ds }) => {
-    return ds.artistAPI.findArtistById(118);
+  artist: (_, { id }, { dataSources: ds }) => {
+    return ds.artistAPI.findArtistById(id);
   }
 };
 
