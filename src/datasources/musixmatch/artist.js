@@ -25,8 +25,19 @@ class ArtistDatasource extends RESTDataSource {
       id: resp.artist_id,
       mbId: resp.artist_mbid,
       name: resp.artist_name,
-      country: resp.country_name,
-      aliases: resp.artist_alias_list,
+      country: resp.artist_country,
+      comment: resp.artist_comment,
+      nameTranslations: resp.artist_name_translation_list.map(
+        ({ artist_name_translation: { language, translation } }) => ({
+          translation: {
+            language,
+            translation
+          }
+        })
+      ),
+      aliases: resp.artist_alias_list.map(({ artist_alias }) => ({
+        alias: artist_alias
+      })),
       rating: resp.artist_rating,
       twitterURL: resp.artist_twitter_url,
       updatedTime: resp.updated_time

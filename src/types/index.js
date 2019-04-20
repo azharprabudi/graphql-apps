@@ -1,6 +1,6 @@
 const typedefs = `
     type Query {
-        artist: Artist
+        artist(id: Int!): Artist
     }
 `;
 
